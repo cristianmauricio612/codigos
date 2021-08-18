@@ -1,0 +1,15 @@
+def BFS(G, s):
+  n = len(G)
+  queue = [s]
+  path = [-1]*n
+  visite = [False]*n
+  visite[s] = True
+  while queue:
+    u = queue[0]
+    for v in range(n):
+      if G[u][v] == 1 and not visite[v]:
+        visite[v] = True
+        path[v] = u
+        queue.append(v)
+    del queue[0]
+  return path
